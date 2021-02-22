@@ -8,6 +8,10 @@ public class Controller : MonoBehaviour
     public GameObject prevCube;
     private int cubeCount = 0;
 
+    [SerializeField] GameObject coinNumPrefab;
+    CoinsManager coinsManager;
+
+
     private Rigidbody rb;
     //private bool isMoving = false;
 
@@ -21,6 +25,7 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        coinsManager = FindObjectOfType<CoinsManager>();
     }
 
     private void Update()
@@ -63,5 +68,15 @@ public class Controller : MonoBehaviour
         playerPos.y -= 1.1f;
         transform.localPosition = playerPos;
         prevCube = cubes;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Coins"))
+        {
+            coinsManager.AddCoins(other.transform.position, 1);
+            Destroy(other.gameObject);
+            Destroy(Instantiate(coinNumPrefab, other.transform.position, Quaternion.identity), 1f);
+        }
     }
 }

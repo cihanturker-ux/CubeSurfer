@@ -6,7 +6,7 @@ public class Cubes : MonoBehaviour
     {
         if (other.tag == "Cubes")
         {
-            other.gameObject.tag = "Normal";
+            other.gameObject.tag = "DropCubes";
             Controller.instance.TakeCubes(other.gameObject);
             other.gameObject.AddComponent<Rigidbody>();
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
