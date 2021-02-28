@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Coins
+  - DropCubes
+  - Cubes
+  - TakeCubes
+  - LevelProgressStart
+  - LevelProgress
+  - LevelEndZone
   layers:
   - Default
   - TransparentFX

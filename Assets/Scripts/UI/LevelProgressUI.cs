@@ -15,6 +15,8 @@ public class LevelProgressUI : MonoBehaviour
     private Vector3 endLinePos;
     private float distance;
 
+    public bool levelFinish = false;
+
     private void Start()
     {
         endLinePos = endLine.position;
@@ -28,8 +30,8 @@ public class LevelProgressUI : MonoBehaviour
 
     float GetDistance()
     {
-        return Vector3.Distance(player.position, endLinePos);
-        //return (endLinePos - player.position).sqrMagnitude; Performance
+        //return Vector3.Distance(player.position, endLinePos);
+        return (endLinePos - player.position).sqrMagnitude; 
     }
 
     void FillProgress(float value)
@@ -44,6 +46,10 @@ public class LevelProgressUI : MonoBehaviour
             float newDistance = GetDistance();
             float progressValue = Mathf.InverseLerp(distance, 0f, newDistance);
             FillProgress(progressValue);
+        }
+        else if (player.position.z >= endLine.position.z)
+        {
+            levelFinish = true;
         }
     }
 }
