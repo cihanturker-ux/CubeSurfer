@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool isStarted = false;
-    public bool isNotStarted = false;
+    private bool isNotStarted = false;
     private bool isSettingActive = false;
     private bool isSoundActive = false;
     private bool isVibrateActive = false;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.isStarted && Input.GetMouseButtonDown(0))
+        if (!isNotStarted && Input.GetMouseButtonDown(0))
         {
             isStarted = true;
             isNotStarted = true;

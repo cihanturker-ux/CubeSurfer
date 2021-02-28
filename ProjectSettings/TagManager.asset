@@ -10,7 +10,7 @@ TagManager:
   - TakeCubes
   - LevelProgressStart
   - LevelProgress
-  - "Art\u0131Bir"
+  - LevelEndZone
   layers:
   - Default
   - TransparentFX

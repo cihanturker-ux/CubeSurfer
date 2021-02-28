@@ -30,8 +30,8 @@ public class LevelProgressUI : MonoBehaviour
 
     float GetDistance()
     {
-        return Vector3.Distance(player.position, endLinePos);
-        //return (endLinePos - player.position).sqrMagnitude; Performance
+        //return Vector3.Distance(player.position, endLinePos);
+        return (endLinePos - player.position).sqrMagnitude; 
     }
 
     void FillProgress(float value)

@@ -47,11 +47,11 @@ public class PlayerController : MonoBehaviour
             {
                 delta = Mathf.Sign(delta);
             }
-            if (transform.position.x > 4.7f && delta > 0)
+            if (transform.position.x > 4.0f && delta > 0)
             {
                 return;
             }
-            else if (transform.position.x < -4.4f && delta < 0)
+            else if (transform.position.x < -4.0f && delta < 0)
             {
                 return;
             }
@@ -86,6 +86,24 @@ public class PlayerController : MonoBehaviour
             coinsManager.AddCoins(other.transform.position, 1);
             Destroy(other.gameObject);
         }
+        if (other.tag == ("LevelEndZone"))
+        {
+            if (cubeCount > 0)
+            {
+                cubeCount--;
+                Debug.Log(cubeCount);
+                transform.GetChild(0).GetChild(cubeCount).gameObject.SetActive(false);
+
+                Vector3 playerPos = transform.localPosition;
+                playerPos.y += 0.0002f;
+                transform.localPosition = playerPos;
+            }
+            else
+            {
+                GameManager.isStarted = false;
+                //Kazanma animasyon
+            }
+        }
 
     }
 
@@ -107,8 +125,10 @@ public class PlayerController : MonoBehaviour
             {
                 GameManager.isStarted = false;
                 //Oyun sonu
+                //Kaybetme animasyon
             }
         }
+        
     }
 
     void Move()
@@ -117,6 +137,5 @@ public class PlayerController : MonoBehaviour
         //rb.AddForce(transform.forward * speed * Time.deltaTime);
         //rb.MovePosition(rb.position + move * Time.deltaTime);
         rb.MovePosition(rb.position + movementDelta * Time.smoothDeltaTime);
-        
     }
 }
