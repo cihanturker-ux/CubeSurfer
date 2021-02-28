@@ -4674,8 +4674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e90113c4dbcd3408c9693c7f8f109d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  horizontalSpeed: 1.5
+  speed: 8
+  horizontalSpeed: 2.2
   deadZone: 0.1
   cubeCount: 0
   prevCube: {fileID: 1154550061}
