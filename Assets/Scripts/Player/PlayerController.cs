@@ -13,15 +13,17 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     public int cubeCount;
     public GameObject prevCube;
+    public GameObject artýBir;
+    
+    CoinsManager coinsManager;
+
+    private Animator anim;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    private void Awake()
-    {
-        
+        coinsManager = FindObjectOfType<CoinsManager>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -77,6 +79,12 @@ public class PlayerController : MonoBehaviour
             Vector3 playerPos = transform.localPosition;
             playerPos.y += 1.0f;
             transform.localPosition = playerPos;
+            Destroy(Instantiate(artýBir, transform.position, Quaternion.identity), 0.5f);
+        }
+        if (other.CompareTag("Coins"))
+        {
+            coinsManager.AddCoins(other.transform.position, 1);
+            Destroy(other.gameObject);
         }
 
     }
