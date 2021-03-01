@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
 
             Vector3 playerPos = transform.localPosition;
-            playerPos.y += 1.0f;
+            playerPos.y += 1.1f;
             transform.localPosition = playerPos;
             Destroy(Instantiate(artiBir, transform.position, Quaternion.identity), 0.5f);
         }
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
                 transform.GetChild(0).GetChild(cubeCount).gameObject.SetActive(false);
 
                 Vector3 playerPos = transform.localPosition;
-                playerPos.y -= 1.0f;
+                playerPos.y -= 1.2f;
                 transform.localPosition = playerPos;
             }
             else

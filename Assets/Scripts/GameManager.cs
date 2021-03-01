@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject button;
     public GameObject levelProgress;
     public GameObject levelProgressStart;
+    public GameObject swipeBar;
+    public GameObject swipeHand;
 
     private void Update()
     {
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
             isNotStarted = true;
         }
         LevelProgress();
+        Swipe();
     }
 
     public void Restart()
@@ -67,6 +70,15 @@ public class GameManager : MonoBehaviour
         {
             levelProgressStart.SetActive(false);
             levelProgress.SetActive(true);
+        }
+    }
+    
+    public void Swipe()
+    {
+        if (GameManager.isStarted && swipeBar.activeInHierarchy && swipeHand.activeInHierarchy)
+        {
+            swipeHand.SetActive(false);
+            swipeBar.SetActive(false);
         }
     }
 }
