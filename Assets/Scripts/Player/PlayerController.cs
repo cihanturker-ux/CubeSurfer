@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody rb;
     public int cubeCount;
     public GameObject prevCube;
-    public GameObject artýBir;
+    public GameObject artiBir;
     
     CoinsManager coinsManager;
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             Vector3 playerPos = transform.localPosition;
             playerPos.y += 1.0f;
             transform.localPosition = playerPos;
-            Destroy(Instantiate(artýBir, transform.position, Quaternion.identity), 0.5f);
+            Destroy(Instantiate(artiBir, transform.position, Quaternion.identity), 0.5f);
         }
         if (other.CompareTag("Coins"))
         {
