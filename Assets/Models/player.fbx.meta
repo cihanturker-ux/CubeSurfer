@@ -48,7 +48,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -56,7 +57,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -106,7 +107,47 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: player(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube
+      parentName: player(Clone)
+      position: {x: 9.407307, y: 1.9229287, z: -2.545229}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 14.266816, y: 14.266816, z: 14.266816}
+    - name: Empty
+      parentName: player(Clone)
+      position: {x: 9.356147, y: 0, z: -2.5845857}
+      rotation: {x: 0.0018419825, y: 0.9999619, z: 0.005236355, w: -0.0067334864}
+      scale: {x: 39.37009, y: 39.37008, z: 39.370083}
+    - name: Empty.001
+      parentName: player(Clone)
+      position: {x: 9.356147, y: 3.7889616e-18, z: -2.5011117}
+      rotation: {x: -0.0052362904, y: 0.006733317, z: 0.0018419867, w: 0.9999619}
+      scale: {x: 39.37009, y: 39.37008, z: 39.370083}
+    - name: Empty.002
+      parentName: player(Clone)
+      position: {x: 9.407307, y: 1.7139442, z: -2.5371103}
+      rotation: {x: 0.00069422316, y: 0.71421593, z: 0.0031625056, w: 0.6999179}
+      scale: {x: 21.042044, y: 21.042048, z: 21.04205}
+    - name: Empty.003
+      parentName: player(Clone)
+      position: {x: 9.450801, y: 0.92102855, z: -2.54961}
+      rotation: {x: 0.000000047078487, y: 0.7071067, z: -0.000000047078476, w: 0.7071069}
+      scale: {x: 11.694777, y: 13.829155, z: 11.694777}
+    - name: Empty.004
+      parentName: player(Clone)
+      position: {x: 9.407307, y: 2.5553255, z: -2.5156746}
+      rotation: {x: 0.000000047078487, y: 0.7071067, z: -0.000000047078476, w: 0.7071069}
+      scale: {x: 15.232682, y: 15.232682, z: 15.232682}
+    - name: Sphere
+      parentName: player(Clone)
+      position: {x: 9.407307, y: 2.5864928, z: -2.5845857}
+      rotation: {x: -0.703659, y: 0.0697429, z: 0.0697429, w: 0.703659}
+      scale: {x: 13.927047, y: 13.927047, z: 13.927047}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -117,13 +158,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

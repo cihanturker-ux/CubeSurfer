@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        anim.Play("idle");
         if (!GameManager.isStarted)
             return;
         movementDelta = Vector3.forward * speed;
@@ -47,11 +48,11 @@ public class PlayerController : MonoBehaviour
             {
                 delta = Mathf.Sign(delta);
             }
-            if (transform.position.x > 3.7f && delta > 0)
+            if (transform.position.x > 3.0f && delta > 0)
             {
                 return;
             }
-            else if (transform.position.x < -3.7f && delta < 0)
+            else if (transform.position.x < -3.0f && delta < 0)
             {
                 return;
             }
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameManager.isStarted = false;
                 //Kazanma animasyon
+                anim.Play("win");
             }
         }
 
@@ -126,6 +128,7 @@ public class PlayerController : MonoBehaviour
                 GameManager.isStarted = false;
                 //Oyun sonu
                 //Kaybetme animasyon
+                anim.Play("down");
             }
         }
         
