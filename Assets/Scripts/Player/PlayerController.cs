@@ -47,11 +47,11 @@ public class PlayerController : MonoBehaviour
             {
                 delta = Mathf.Sign(delta);
             }
-            if (transform.position.x > 4.0f && delta > 0)
+            if (transform.position.x > 3.7f && delta > 0)
             {
                 return;
             }
-            else if (transform.position.x < -4.0f && delta < 0)
+            else if (transform.position.x < -3.7f && delta < 0)
             {
                 return;
             }
@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
 
             Vector3 playerPos = transform.localPosition;
-            playerPos.y += 1.1f;
+            playerPos.y += 1.2f;
             transform.localPosition = playerPos;
             Destroy(Instantiate(artiBir, transform.position, Quaternion.identity), 0.5f);
         }
