@@ -17,6 +17,8 @@ public class LevelProgressUI : MonoBehaviour
 
     public bool levelFinish = false;
 
+    Animator anim;
+
     private void Start()
     {
         endLinePos = endLine.position;

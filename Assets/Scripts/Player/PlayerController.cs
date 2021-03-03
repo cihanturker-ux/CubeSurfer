@@ -18,17 +18,19 @@ public class PlayerController : MonoBehaviour
     CoinsManager coinsManager;
 
     private Animator anim;
+
+    private LevelProgressUI levelProgressUI;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         coinsManager = FindObjectOfType<CoinsManager>();
         anim = GetComponent<Animator>();
+        levelProgressUI = FindObjectOfType<LevelProgressUI>();
     }
 
     private void Update()
     {
-        anim.Play("idle");
         if (!GameManager.isStarted)
             return;
         movementDelta = Vector3.forward * speed;
@@ -48,11 +50,11 @@ public class PlayerController : MonoBehaviour
             {
                 delta = Mathf.Sign(delta);
             }
-            if (transform.position.x > 3.0f && delta > 0)
+            if (transform.position.x > 2.5f && delta > 0)
             {
                 return;
             }
-            else if (transform.position.x < -3.0f && delta < 0)
+            else if (transform.position.x < -2.6f && delta < 0)
             {
                 return;
             }
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
             coinsManager.AddCoins(other.transform.position, 1);
             Destroy(other.gameObject);
         }
-        if (other.tag == ("LevelEndZone"))
+        if (other.tag == ("LevelEndZone") && cubeCount > 0)
         {
             if (cubeCount > 0)
             {
@@ -95,15 +97,20 @@ public class PlayerController : MonoBehaviour
                 Debug.Log(cubeCount);
                 transform.GetChild(0).GetChild(cubeCount).gameObject.SetActive(false);
 
+
                 Vector3 playerPos = transform.localPosition;
                 playerPos.y += 0.0002f;
                 transform.localPosition = playerPos;
+
+                if (cubeCount == 0)
+                {
+                    anim.Play("win");
+                } 
             }
             else
             {
                 GameManager.isStarted = false;
-                //Kazanma animasyon
-                anim.Play("win");
+                
             }
         }
 
@@ -122,13 +129,15 @@ public class PlayerController : MonoBehaviour
                 Vector3 playerPos = transform.localPosition;
                 playerPos.y -= 1.2f;
                 transform.localPosition = playerPos;
+                if (cubeCount == 0)
+                {
+                    anim.Play("down");
+                    GameManager.isStarted = false;
+                }
             }
             else
             {
                 GameManager.isStarted = false;
-                //Oyun sonu
-                //Kaybetme animasyon
-                anim.Play("down");
             }
         }
         
