@@ -18,15 +18,12 @@ public class PlayerController : MonoBehaviour
     CoinsManager coinsManager;
 
     private Animator anim;
-
-    private LevelProgressUI levelProgressUI;
     
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         coinsManager = FindObjectOfType<CoinsManager>();
         anim = GetComponent<Animator>();
-        levelProgressUI = FindObjectOfType<LevelProgressUI>();
     }
 
     private void Update()
@@ -59,7 +56,6 @@ public class PlayerController : MonoBehaviour
                 return;
             }
             movementDelta += Vector3.right * horizontalSpeed * delta;
-
         }
     }
 
@@ -83,6 +79,7 @@ public class PlayerController : MonoBehaviour
             playerPos.y += 1.2f;
             transform.localPosition = playerPos;
             Destroy(Instantiate(artiBir, transform.position, Quaternion.identity), 0.5f);
+
         }
         if (other.CompareTag("Coins"))
         {
